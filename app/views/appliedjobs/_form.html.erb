@@ -1,0 +1,35 @@
+<%= form_with(model: appliedjob) do |form| %>
+  <% if appliedjob.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(appliedjob.errors.count, "error") %> prohibited this appliedjob from being saved:</h2>
+
+      <ul>
+        <% appliedjob.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :resume %>
+    <%= form.file_field :resume %>
+  </div>
+
+  <div>
+    <%= form.label :status, style: "display: none" %>
+  </div>
+  </div>
+
+  <div>
+  <%= form.hidden_field :job_id, value: params[:id]  %>
+  </div>
+
+  <div>
+  <%= form.hidden_field :user_id, value: current_user.id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

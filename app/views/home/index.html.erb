@@ -1,0 +1,37 @@
+<h1>Job Posts</h1>
+
+<% @homejobs.each do |job| %>
+    <b>Job Title : </b><%= job.job_title %><br>
+    <b>Skills : </b><%= job.skills %><br>
+    <b>Job Description : </b><%= job.job_description %><br>
+    <b>Job Type : </b><%= job.job_type %><br><br>
+    <b>Job ID : </b><%= job.id %><br><br>
+    <%if current_user.usertype == "Recruiter" %>
+    <%= link_to "Show this job", job %>
+    <br><br>
+    <h4>Job Applications</h4>
+    <% @appliedjobs.each do |appliedjob| %>
+        <%if job.id==appliedjob.job_id %>
+        <%= link_to "View Job Application", appliedjob %><br><br>
+        <%end%>
+     <%end%>
+    <br><br>
+    <%end%>
+    <%if current_user.usertype == "Candidate" %>
+    <%= link_to "Apply for this job", apply_path(job.id) %><br><br>
+    <%end%>
+<% end %>
+
+    <%if current_user.usertype == "Recruiter" %>
+        <%= link_to "New Job", new_job_path %>
+    <% end%>
+  
+<%if current_user.usertype == "Candidate" %>
+<h4>My Jobs</h4>
+<% @appliedjobs.each do |job| %>
+    <%= job.job.job_title %> 
+    <%= job.status.nil? ? "Pending" : job.status %><br>
+<%end%>    
+<%end%>
+
+<%= link_to "Sign out", destroy_user_session_path,data: {"turbo-method": :delete}, class: "link-secondarysmooth" %>

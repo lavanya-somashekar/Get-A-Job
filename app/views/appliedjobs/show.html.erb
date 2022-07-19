@@ -1,0 +1,18 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @appliedjob %>
+
+<div>
+<%if current_user.usertype == "Candidate" %>
+  <%= link_to "Edit this appliedjob", edit_appliedjob_path(@appliedjob) %> |
+  
+  <%= link_to "Back to appliedjobs", appliedjobs_path %>
+
+
+  <%= button_to "Destroy this appliedjob", @appliedjob, method: :delete %>
+<%end%>
+
+<%if current_user.usertype == "Recruiter" %>
+<%= link_to "Back to jobs", home_index_path %><br><br>
+<%end%>
+</div>
