@@ -3,8 +3,15 @@
 <%= render @job %>
 
 <div>
-  <%= link_to "Edit this job", edit_job_path(@job) %> |
-  <%= link_to "Back to jobs", home_index_path %><br><br>
+<center>
+<br>
 
-  <%= button_to "Destroy this job", @job, method: :delete %>
+  <%= link_to "Edit this job", edit_job_path(@job),class:"btn btn-primary btn-dark" %> 
+  <%= link_to "Back to jobs", jobs_path , class:"btn btn-primary btn-dark" %><br><br>
+  
+  <%= button_to "Destroy this job", @job, method: :delete ,class:"btn btn-primary btn-dark"%>
+  <br><br>
+   
+<%= render "display" , job: @job %> 
+ </center> 
 </div>

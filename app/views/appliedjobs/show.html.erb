@@ -4,15 +4,18 @@
 
 <div>
 <%if current_user.usertype == "Candidate" %>
-  <%= link_to "Edit this appliedjob", edit_appliedjob_path(@appliedjob) %> |
+<center>
+  <%= link_to "Edit", edit_appliedjob_path(@appliedjob),class:"btn btn-primary btn-dark"%> |
   
-  <%= link_to "Back to appliedjobs", appliedjobs_path %>
-
-
+  <%= link_to "Back", jobs_path,class:"btn btn-primary btn-dark" %>
+</center>
+<%if false%>
   <%= button_to "Destroy this appliedjob", @appliedjob, method: :delete %>
+<%end%>  
 <%end%>
 
 <%if current_user.usertype == "Recruiter" %>
-<%= link_to "Back to jobs", home_index_path %><br><br>
+<br>
+<center><%= link_to "Back to job", job_path(@appliedjob.job_id),class:"btn btn-primary btn-dark" %><br><br></center>
 <%end%>
 </div>

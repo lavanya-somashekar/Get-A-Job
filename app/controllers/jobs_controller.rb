@@ -1,15 +1,41 @@
 class JobsController < ApplicationController
-  before_action :set_job, only: %i[ show edit update destroy ]
+  before_action :set_job, only: %i[ show edit update destroy  ]
 
   # GET /jobs or /jobs.json
   def index
-    @jobs = Job.all
+    if current_user.usertype=="Recruiter"
+      @jobs=Job.where(user_id: current_user.id)
+      @appliedjobs=Appliedjob.all
+    else
+      @jobs=Job.all 
+      @appliedjobs=Appliedjob.where(user_id: current_user.id)
+    end  
   end
 
   # GET /jobs/1 or /jobs/1.json
   def show
-    
+    if current_user.usertype=="Recruiter"
+      @jobs=Job.where(user_id: current_user.id)
+      @appliedjobs=Appliedjob.all
+    else
+      @jobs=Job.all 
+      @appliedjobs=Appliedjob.where(user_id: current_user.id)
+    end  
   end
+
+  def display
+    if current_user.usertype=="Recruiter"
+      @jobs=Job.where(user_id: current_user.id)
+      @appliedjobs=Appliedjob.all
+    else
+      @jobs=Job.all 
+      @appliedjobs=Appliedjob.where(user_id: current_user.id)
+    end  
+  end  
+
+  def applied
+    @appliedjobs=Appliedjob.where(user_id: current_user.id) 
+  end  
 
   # GET /jobs/new
   def new
@@ -26,8 +52,8 @@ class JobsController < ApplicationController
 
     respond_to do |format|
       if @job.save
-        format.html { redirect_to home_index_url(), notice: "Job was successfully created." }
-        # format.html { redirect_to job_url(@job), notice: "Job was successfully created." }
+        #format.html { redirect_to home_index_url(), notice: "Job was successfully created." }
+        format.html { redirect_to job_url(@job), notice: "Job was successfully created." }
         format.json { render :show, status: :created, location: @job }
       else
         format.html { render :new, status: :unprocessable_entity }

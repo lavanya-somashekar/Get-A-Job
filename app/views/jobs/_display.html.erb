@@ -1,0 +1,17 @@
+<table style="width:300px" class="table table-light table-hover table-striped table-bordered table-sm">
+  <thead>
+    <th>Applicant</th>
+    <th>Application</th>
+  </thead> 
+<%if current_user.usertype == "Recruiter" %>
+<% @appliedjobs.each do |appliedjob| %>
+  <%if job.id==appliedjob.job_id %>
+    <tr>
+      <td><%= appliedjob.user.username%></td>
+      <td style="margin:2px"><%= link_to "View", appliedjob ,class:"btn btn-dark"%></td>
+    </tr>
+  <%end%>
+<%end%>
+  <br><br>
+<%end%> 
+</table>

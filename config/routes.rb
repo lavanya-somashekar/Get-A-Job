@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   root "home#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   get 'appliedjobs/new/:id' => 'appliedjobs#new', :as => 'apply'
-
+  get '/applied' => 'jobs#applied', as: 'listjob'
 
   # Defines the root path route ("/")
   # root "articles#index"

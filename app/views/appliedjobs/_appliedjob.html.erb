@@ -1,46 +1,44 @@
 <div id="<%= dom_id appliedjob %>">
-  <p>
-    <strong>Resume:</strong>
-    <% if appliedjob.resume.attached? %>
-      <% if appliedjob.resume.representable? %>
-      <%= image_tag appliedjob.resume.representation(resize_to_limit: [100, 100]) %>
-      <% else %>
-      <%= link_to rails_blob_path(appliedjob.resume, disposition: "attachment") do %>
-      <% end %> 
-     <%end%>
-    <%end%>    
-  </p>
-<p>
-    <strong>Resume:</strong>
-    <%= appliedjob.resume %>
-  </p> 
-  <p>
-    <strong>Job:</strong>
-    <%= appliedjob.job.job_title %>
-  </p>
+ 
+  <center><br><br><div class="card" style="width: 50rem;">
+  <div class="card-body">
+    
+  
+    <p class="card-text"> <strong>Resume:</strong>
+    <% if appliedjob.resume.image?%>
+      <%= image_tag appliedjob.resume%>
+    <%else%>
+      <%= link_to appliedjob.resume.filename, rails_blob_path(appliedjob.resume,disposition: "attachment")%>  
+    <%end%> </p>
+     
+    <p class="card-text">
+      <strong>Job:</strong>
+      <%= appliedjob.job.job_title  %>
+    </p>
+  
+    <p class="card-text">
+      <strong>Contact:</strong>
+      <%= appliedjob.user.email %>
+    </p>
 
-  <p>
-    <strong>Contact:</strong>
-    <%= appliedjob.user.email %>
-  </p>
-
-  <%if current_user.usertype == "Recruiter" %>
+    <%if current_user.usertype == "Recruiter" %>
   <%= form_with(model: appliedjob) do |form| %>
-    <div>
-    <%= form.label :status %><br />
+    <div class="card-text">
+    <strong><%= form.label :status %> :</strong>
     <%= form.select :status, ['Accept', 'Reject'], selected: 'Accept' %>
   </div>
-  <div>
+  <div class="card-text">
+  <br>
     <%= form.submit %>
+  </div>
   </div>
   <%end%>
   <%end%>
 
-  <p>
- 
-  <strong>Status:</strong>
-    <%= appliedjob.status.nil? ? "Pending" : appliedjob.status %>
- 
-  </p>
+  <p class="card-text">
+      <strong>Status:</strong>
+      <%= appliedjob.status.nil? ? "Pending" : appliedjob.status %>
+    </p>
 
+  </div></center>
 </div>

@@ -3,7 +3,7 @@ class AppliedjobsController < ApplicationController
 
   # GET /appliedjobs or /appliedjobs.json
   def index
-    @appliedjobs = Appliedjob.all
+    @appliedjobs = Appliedjob.where(user_id: current_user.id) 
   end
 
   # GET /appliedjobs/1 or /appliedjobs/1.json
@@ -19,13 +19,15 @@ class AppliedjobsController < ApplicationController
   def edit
   end
 
+
   # POST /appliedjobs or /appliedjobs.json
   def create
     @appliedjob = Appliedjob.new(appliedjob_params)
+    @appliedjob.resume.attach(params[:appliedjob][:resume])
 
     respond_to do |format|
       if @appliedjob.save
-        format.html { redirect_to appliedjob_url(@appliedjob), notice: "Appliedjob was successfully created." }
+        format.html { redirect_to appliedjob_url(@appliedjob), notice: "You have successfully applied for the job." }
         format.json { render :show, status: :created, location: @appliedjob }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +40,7 @@ class AppliedjobsController < ApplicationController
   def update
     respond_to do |format|
       if @appliedjob.update(appliedjob_params)
-        format.html { redirect_to appliedjob_url(@appliedjob), notice: "Appliedjob was successfully updated." }
+        format.html { redirect_to appliedjob_url(@appliedjob), notice: "Status was successfully updated." }
         format.json { render :show, status: :ok, location: @appliedjob }
       else
         format.html { render :edit, status: :unprocessable_entity }

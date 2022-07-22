@@ -4,5 +4,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   enum :usertype, { Recruiter: 0, Candidate: 1 }   
-  has_many :jobs    
+  has_many :jobs , dependent: :destroy 
 end

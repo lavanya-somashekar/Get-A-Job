@@ -1,0 +1,16 @@
+<%= render 'home/header'%>
+</br></br>
+<center><table style="width:500px" class="table table-light table-hover table-striped table-bordered table-sm">
+  <thead>
+    <th>Job Title</th>
+    <th>Status</th>
+  </thead>
+  <%if current_user.usertype == "Candidate" %>
+<% @appliedjobs.each do |job| %>
+<tr>
+  <td><%= job.job.job_title %> </td>
+  <td><%= job.status.nil? ? "Pending" : job.status %><br></td>
+</tr>  
+<%end%>    
+<%end%>
+</center>
