@@ -49,12 +49,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_20_092000) do
     t.index ["user_id"], name: "index_appliedjobs_on_user_id"
   end
 
-  create_table "companies", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.text "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "jobs", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "job_title"
     t.text "skills"

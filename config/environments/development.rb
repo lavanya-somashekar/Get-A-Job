@@ -17,6 +17,9 @@ Rails.application.configure do
   # Enable server timing
   config.server_timing = true
 
+  ENV['GOOGLE_OAUTH_CLIENT_ID']= '457564183019-2r9muqbff2pmktdihgel6tq3n5tmtpck.apps.googleusercontent.com'
+  ENV['GOOGLE_OAUTH_CLIENT_SECRET']= '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'
+
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
   # Enable/disable caching. By default caching is disabled.

@@ -6,13 +6,15 @@
     <%= render job %>
       <%if current_user.usertype == "Recruiter" %>
         <div class="d-grid gap-2 col-6 mx-auto">
-          <%= link_to "Show this job", job ,class:"btn btn-primary btn-dark" %>
+        <br>
+        <center>  <%= link_to "Show this job", job ,class:"btn btn-group-small my-small-btn ",style: "width:20rem;background-color:#C24641;color:white"%></center>
         </div>
       <br><br>
       <%end%>
     <%if current_user.usertype == "Candidate" %>
-      <div class="d-grid gap-2 col-6 mx-auto">
-      <%= link_to "Apply for this job", apply_path(job.id),class:"btn btn-primary btn-dark" %><br><br>
+      <div class="d-grid gap-2 col-6 mx-auto" >
+      <br>
+    <center> <%= link_to "Apply for this job", apply_path(job.id),class:"btn btn-group-small my-small-btn ",style: "width:20rem;background-color:#C24641;color:white"%></center><br><br>
       </div>
     <%end%>
   <% end %>
