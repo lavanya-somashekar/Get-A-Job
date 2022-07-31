@@ -12,33 +12,38 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :job_title, style: "display: block" %>
-    <%= form.text_field :job_title %>
+ 
+<center><div class="card text-center" style="width: 50rem;font-size:20px;background-color:#ECC5C0">
+  <div class="card-text field form-outline px-3 py-4 mx-md-4">
+  <b> <%= form.label :job_title, style: "display: block;width:85%" %></b>
+    <%= form.text_field :job_title%> 
   </div>
 
-  <div>
-    <%= form.label :skills, style: "display: block" %>
+  <div class="card-text px-3 py-4 mx-md-4">
+   <b> <%= form.label :skills, style: "display: block;width:80%" %></b>
     <%= form.text_area :skills %>
   </div>
 
-  <div>
-    <%= form.label :job_description, style: "display: block" %>
+  <div class="card-text field form-outline px-3 py-4 mx-md-4">
+  <b>  <%= form.label :job_description, style: "display: block;width:90%" %></b>
     <%= form.text_area :job_description %>
   </div>
 
-<div>
+<div class="card-text field px-3 py-4 mx-md-4">
 <%= form.hidden_field :user_id, value: current_user.id %>
 </div>
 
-  <div>
-    <%= form.label :job_type, style: "display: block" %>
-    <%= form.select :job_type, ['FullTime', 'Internship'], selected: 'FullTime' %>
+  <div class="card-text field mb-4 px-3 py-0 mx-md-4" >
+   <b> <%= form.label :job_type, style: "display: block;width:90%" %></b>
+   <%= form.select :job_type, ['FullTime', 'Internship'], selected: 'FullTime' %>
   </div>
 
 
 
-  <div>
-    <%= form.submit %>
+  <div class="card-text field form-outline mb-4 px-3 py-0 mx-md-4" >
+    <%= form.submit "Create Job",class:"btn btn-group-small my-small-btn",style: "width:10rem;background-color:#C24641;color:white"%>
+    <br>
   </div>
+  </div>
+</div></b></center>
 <% end %>

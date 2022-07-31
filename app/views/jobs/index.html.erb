@@ -1,7 +1,7 @@
 <p style="color: green"><%= notice %></p>
 <%= render 'home/header'%>
 
-<div id="jobs">
+<div id="jobs" style="background-image: url('/assets/company.jpeg');background-size: 2000px 3900px">
   <% @jobs.each do |job| %>
     <%= render job %>
       <%if current_user.usertype == "Recruiter" %>
@@ -18,13 +18,11 @@
       </div>
     <%end%>
   <% end %>
-</div>
+
 
 <%if current_user.usertype == "Recruiter" %>
-<%= link_to "New Job", new_job_path , class:"btn btn-dark"%>
+<%= link_to "New Job", new_job_path , class:"btn btn-group-small my-small-btn",style: "width:10rem;background-color:#C24641;color:white"%>
 <% end%>
+</div>
 
-
-
-<%= link_to "Sign out", destroy_user_session_path,data: {"turbo-method": :delete}, class: "link-secondarysmooth" %>
 

@@ -11,15 +11,15 @@
     </div>
   <% end %>
 
-  <div>
-  <br>
-    <%= form.label :resume %>
-    <%= form.file_field :resume %>
+  <center><div class="card text-center" style="width: 40rem;font-size:20px;background-color:#ECC5C0">
+  <div class="card-text field form-outline px-3 py-4">
+  <b> <%= form.label :resume %><b>
+  <%= form.file_field :resume %>
   </div>
-
+  <br>
+    
   <div>
     <%= form.label :status, style: "display: none" %>
-  </div>
   </div>
 
   <div>
@@ -30,8 +30,10 @@
   <%= form.hidden_field :user_id, value: current_user.id %>
   </div>
 
-  <div>
+  <div  class="card-text field form-outline mb-4 px-3 py-0 ">
   <br>
-    <%= form.submit %>
+    <%= form.submit "Submit",class:"btn btn-group-small my-small-btn",style: "width:10rem;background-color:#C24641;color:white" %>
+  </div>
+  </div>
   </div>
 <% end %>

@@ -5,7 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: [:google_oauth2]
   enum :usertype, { Recruiter: 0, Candidate: 1 }   
-  has_many :jobs , dependent: :destroy 
+  has_many :appliedjobs
+  has_many :jobs , through: :appliedjobs,dependent: :destroy 
+ 
+
 
   def self.from_omniauth(auth)
     data = auth.info

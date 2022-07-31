@@ -1,5 +1,5 @@
-<table style="width:300px" class="table table-light table-hover table-striped table-bordered table-sm">
-  <thead>
+<table style="width:450px;background-color:#E9CFEC;font-size:20px" class="table  table-hover table-striped table-sm">
+  <thead style="background-color:#C12267;color:white;font-size:25px">
     <th>Applicant</th>
     <th>Application</th>
   </thead> 
@@ -8,7 +8,7 @@
   <%if job.id==appliedjob.job_id %>
     <tr>
       <td><%= appliedjob.user.username%></td>
-      <td style="margin:2px"><%= link_to "View", appliedjob ,class:"btn btn-dark"%></td>
+     <td style="margin:2px"><%= link_to "View", appliedjob ,class:"btn btn-group-small my-small-btn",style: "width:6rem;background-color:#4863A0;color:white"%></td>
     </tr>
   <%end%>
 <%end%>

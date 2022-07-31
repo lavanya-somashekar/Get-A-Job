@@ -1,15 +1,16 @@
 <p style="color: green"><%= notice %></p>
-
+<%= render 'home/header'%>
+<div style="background-image: url('/assets/company2.webp');background-size: 1200px 700px">
 <%= render @job %>
 
-<div>
+
 <center>
 <br>
 
-  <%= link_to "Edit this job", edit_job_path(@job),class:"btn btn-primary btn-dark" %> 
-  <%= link_to "Back to jobs", jobs_path , class:"btn btn-primary btn-dark" %><br><br>
+  <%= link_to "Edit this job", edit_job_path(@job),class:"btn btn-group-small my-small-btn",style: "width:10rem;background-color:#C24641;color:white" %> 
+  <%= link_to "Back to jobs", jobs_path , class:"btn btn-group-small my-small-btn",style: "width:10rem;background-color:#C24641;color:white" %><br><br>
   
-  <%= button_to "Destroy this job", @job, method: :delete ,class:"btn btn-primary btn-dark"%>
+  <%= button_to "Delete this job", @job, method: :delete ,class:"btn btn-group-small my-small-btn",style: "width:10rem;background-color:#C24641;color:white"%>
   <br><br>
    
 <%= render "display" , job: @job %> 

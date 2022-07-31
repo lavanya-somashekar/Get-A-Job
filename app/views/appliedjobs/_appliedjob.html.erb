@@ -1,9 +1,9 @@
 <div id="<%= dom_id appliedjob %>">
+<%= render 'home/header'%>
  
-  <center><br><br><div class="card" style="width: 50rem;">
-  <div class="card-body">
+  <center><br><br><div class="card" style="width: 55rem;background-color:#C25283;">
+  <div class="card-body" style="background-image: url('/assets/company7.jpeg');background-size: 900px 300px">>
     
-  
     <p class="card-text"> <strong>Resume:</strong>
     <% if appliedjob.resume.image?%>
       <%= image_tag appliedjob.resume%>
@@ -29,9 +29,9 @@
   </div>
   <div class="card-text">
   <br>
-    <%= form.submit %>
+    <%= form.submit "Update Status" ,class:"btn btn-primary",style: "background-color:#4863A0;color:white"%>
   </div>
-  </div>
+  
   <%end%>
   <%end%>
 
@@ -39,6 +39,6 @@
       <strong>Status:</strong>
       <%= appliedjob.status.nil? ? "Pending" : appliedjob.status %>
     </p>
-
+    </div>
   </div></center>
-</div>
+ </div>

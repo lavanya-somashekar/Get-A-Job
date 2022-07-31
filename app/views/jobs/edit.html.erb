@@ -1,10 +1,14 @@
-<h1>Editing job</h1>
-
+<%= render 'home/header'%>
+<br><br><br>
+<div style="background-image: url('/assets/company8.webp');background-size: 2000px 800px">
+<center><h1>Edit A Job</h1>
+<br>
 <%= render "form", job: @job %>
 
 <br>
 
-<div>
-  <%= link_to "Show this job", @job %> |
-  <%= link_to "Back to jobs", jobs_path %>
+  <div>
+  <center><%= link_to "Show this job", @job,class:"btn btn-primary btn-dark",style: "background-color:#C25283" %> |
+  <%= link_to "Back to jobs", jobs_path ,class:"btn btn-primary btn-dark",style: "background-color:#C25283"%></center>
+  </div>
 </div>

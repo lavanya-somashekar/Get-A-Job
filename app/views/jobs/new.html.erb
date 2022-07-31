@@ -1,9 +1,14 @@
-<h1>New job</h1>
-
+<%= render 'home/header'%>
+<br><br><br>
+<div style="background-image: url('/assets/company8.webp');background-size: 2000px 800px">
+<center><h1>Post a New Job</h1>
+<br>
 <%= render "form", job: @job %>
 
 <br>
 
+<br>
 <div>
-  <%= link_to "Back to jobs", jobs_path %>
+  <center><%= link_to "Back to jobs", jobs_path ,class:"btn btn-primary btn-dark",style: "background-color:#C25283"%></center>
+</div>
 </div>
