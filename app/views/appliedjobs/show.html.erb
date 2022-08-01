@@ -1,13 +1,13 @@
+<%= render @appliedjob %>
 <p style="color: green"><%= notice %></p>
 
-<%= render @appliedjob %>
-
+<br><br>
 <div>
 <%if current_user.usertype == "Candidate" %>
 <center>
-  <%= link_to "Edit", edit_appliedjob_path(@appliedjob),class:"btn btn-primary btn-dark"%> |
+  <%= link_to "Edit", edit_appliedjob_path(@appliedjob),class:"btn btn-warning"%> |
   
-  <%= link_to "Back", jobs_path,class:"btn btn-primary btn-dark" %>
+  <%= link_to "Back", jobs_path,class:"btn btn-warning" %>
 </center>
 <%if false%>
   <%= button_to "Destroy this appliedjob", @appliedjob, method: :delete %>
@@ -16,6 +16,6 @@
 
 <%if current_user.usertype == "Recruiter" %>
 <br>
-<center><%= link_to "Back to job", job_path(@appliedjob.job_id),class:"btn btn-primary btn-dark",style: "background-color:#C25283" %><br><br></center>
+<center><%= link_to "Back to job", job_path(@appliedjob.job_id),class:"btn btn-warning" %><br><br></center>
 <%end%>
 </div>

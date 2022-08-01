@@ -13,10 +13,15 @@
   <% end %>
 
  
-<center><div class="card text-center" style="width: 50rem;font-size:20px;background-color:#ECC5C0">
+<center><div class="card text-center shadow gradient-custom-2" style="width: 50rem;color:white">
   <div class="card-text field form-outline px-3 py-4 mx-md-4">
   <b> <%= form.label :job_title, style: "display: block;width:85%" %></b>
     <%= form.text_field :job_title%> 
+  </div>
+
+  <div class="card-text field form-outline px-3 py-4 mx-md-4">
+  <b> <%= form.label :company_name, style: "display: block;width:90%" %></b>
+    <%= form.text_field :company_name%> 
   </div>
 
   <div class="card-text px-3 py-4 mx-md-4">
@@ -27,6 +32,11 @@
   <div class="card-text field form-outline px-3 py-4 mx-md-4">
   <b>  <%= form.label :job_description, style: "display: block;width:90%" %></b>
     <%= form.text_area :job_description %>
+  </div>
+
+  <div class="card-text field form-outline px-3 py-4 mx-md-4">
+  <b> <%= form.label :pay, style: "display: block;width:80%" %></b>
+    <%= form.text_field :pay%> 
   </div>
 
 <div class="card-text field px-3 py-4 mx-md-4">
@@ -41,7 +51,7 @@
 
 
   <div class="card-text field form-outline mb-4 px-3 py-0 mx-md-4" >
-    <%= form.submit "Create Job",class:"btn btn-group-small my-small-btn",style: "width:10rem;background-color:#C24641;color:white"%>
+    <%= form.submit "Create Job",class:"btn btn-outline-warning"%>
     <br>
   </div>
   </div>

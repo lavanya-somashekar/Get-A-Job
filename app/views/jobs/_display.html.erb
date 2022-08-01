@@ -1,17 +1,22 @@
-<table style="width:450px;background-color:#E9CFEC;font-size:20px" class="table  table-hover table-striped table-sm">
-  <thead style="background-color:#C12267;color:white;font-size:25px">
-    <th>Applicant</th>
-    <th>Application</th>
-  </thead> 
 <%if current_user.usertype == "Recruiter" %>
-<% @appliedjobs.each do |appliedjob| %>
-  <%if job.id==appliedjob.job_id %>
-    <tr>
-      <td><%= appliedjob.user.username%></td>
-     <td style="margin:2px"><%= link_to "View", appliedjob ,class:"btn btn-group-small my-small-btn",style: "width:6rem;background-color:#4863A0;color:white"%></td>
-    </tr>
+  <% @appliedjobs.each do |appliedjob| %>
+    <%if job.id==appliedjob.job_id %>
+    <br>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+        <div class = "card" style="width: 30rem;background-color:#4863A0;color:white">
+            <h4><%= appliedjob.user.username%></h4>
+            <div class="row">
+              <div class="col"><b>ID: <%= appliedjob.user.id%></b></div>
+              <div class="col"><%= link_to "View Application", appliedjob ,class:"btn",style: "width:10rem;background-color:#872657;color:white"%></div>
+            </div> 
+        </div>
+        </div>
+      </div>
+    </div>
+    <%end%>
   <%end%>
-<%end%>
-  <br><br>
 <%end%> 
-</table>
+
+
