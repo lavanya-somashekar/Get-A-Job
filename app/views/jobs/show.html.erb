@@ -23,16 +23,6 @@
                         <p> <b>Job Description : </b><%= @job.job_description %></p>
                         <p><b>Pay Package : </b><%=  @job.pay  %></p>
                         <p> <b>Job Type : </b><%= @job.job_type %></p>
-                        <div class="row d-flex justify-content-center align-items-center">
-                          <%if current_user.usertype == "Recruiter" %>
-                            <center> </center>
-                          <%end%>
-                          <%if current_user.usertype == "Candidate" %>
-                            <div class="d-grid gap-2 col-6 mx-auto" >
-                              <center> </center>
-                            </div>
-                          <%end%>
-                        </div>
                       </div>
                     </div>
                   </div>

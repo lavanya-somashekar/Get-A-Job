@@ -8,10 +8,7 @@
   <%= link_to "Edit", edit_appliedjob_path(@appliedjob),class:"btn btn-warning"%> |
   
   <%= link_to "Back", jobs_path,class:"btn btn-warning" %>
-</center>
-<%if false%>
-  <%= button_to "Destroy this appliedjob", @appliedjob, method: :delete %>
-<%end%>  
+</center> 
 <%end%>
 
 <%if current_user.usertype == "Recruiter" %>

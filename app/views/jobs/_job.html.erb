@@ -9,9 +9,7 @@
             </div>
             <div class="card-body pt-2 m-4">
               <div class="widget-49">
-                <%if current_user.usertype == "Candidate" %> 
-                  <p> <b>Company Name : </b><%=job.company_name%></p>
-                <%end%>  
+                  <p> <b>Company Name : </b><%=job.company_name%></p> 
                   <p> <b>Skills : </b><%=job.skills%></p>
                   <p> <b>Job Description : </b><%= job.job_description %></p>
                   <p><b>Pay Package : </b><%=  job.pay  %></p>
@@ -32,37 +30,7 @@
         </div>
       </div>
     </div>
+</div>              
 </div>
 
 
-
-              
-</div>
-
-
-<% if false %>
- 
-
-
-<h6 class="mb-0">Mailchimp</h6> <span>1 days ago</span>
-                      <h3 class="card-title">Job title <h3>
-                        <%= job.job_title %>
-                  </div>
-                </div>
-                <div class="badge"> <span>Design</span> </div>
-            </div>
-          <%if current_user.usertype == "Candidate" %>
-            <p class="card-text"> <strong>Company Name:</strong>
-            <%= job.company_name %></p>
-          <%end%>  
-          <p>  <%=  job.skills %></p>
-        <div class="mt-5">
-            <h3 class="heading">Desciprtion<br></h3>  <%= job.job_description %>
-            <div class="mt-5">
-                <div class="progress">
-                    <h4 >Pay Package</h4>  <%=  job.pay  %>
-                    <br>
-                      <%= job.job_type %>
-                </div>
-                <div class="mt-3"> <span class="text1"> <%= job.skills %></p> </span> </div>
-<% end %>

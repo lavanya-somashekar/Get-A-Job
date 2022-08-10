@@ -39,16 +39,14 @@
     <%= form.text_field :pay%> 
   </div>
 
-<div class="card-text field px-3 py-4 mx-md-4">
-<%= form.hidden_field :user_id, value: current_user.id %>
-</div>
+  <div class="card-text field px-3 py-4 mx-md-4">
+  <%= form.hidden_field :user_id, value: current_user.id %>
+  </div>
 
   <div class="card-text field mb-4 px-3 py-0 mx-md-4" >
    <b> <%= form.label :job_type, style: "display: block;width:90%" %></b>
    <%= form.select :job_type, ['FullTime', 'Internship'], selected: 'FullTime' %>
   </div>
-
-
 
   <div class="card-text field form-outline mb-4 px-3 py-0 mx-md-4" >
     <%= form.submit "Create Job",class:"btn btn-outline-warning"%>

@@ -1,7 +1,6 @@
 <%= render 'home/header'%>
 </br></br>
 <center>
-  <%if current_user.usertype == "Candidate" %>
 <% @appliedjobs.each do |job| %>
 <br>
   <div class="container">
@@ -17,8 +16,6 @@
         </div>
       </div>
     </div>
-
 <%end%>    
-<%end%>
 </center>
 

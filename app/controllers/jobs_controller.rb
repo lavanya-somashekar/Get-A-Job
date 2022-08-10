@@ -3,34 +3,17 @@ class JobsController < ApplicationController
 
   # GET /jobs or /jobs.json
   def index
-    if current_user.usertype=="Recruiter"
-      @jobs=Job.where(user_id: current_user.id)
-      @appliedjobs=Appliedjob.all
-    else
-      @jobs=Job.all 
-      @appliedjobs=Appliedjob.where(user_id: current_user.id)
-    end  
+    @jobs=JobDetails.new(current_user).users
   end
 
+
   # GET /jobs/1 or /jobs/1.json
-  def show
-    if current_user.usertype=="Recruiter"
-      @jobs=Job.where(user_id: current_user.id)
-      @appliedjobs=Appliedjob.all
-    else
-      @jobs=Job.all 
-      @appliedjobs=Appliedjob.where(user_id: current_user.id)
-    end  
+  def show 
+    @jobs=Job.where(user_id: current_user.id)
+    @appliedjobs=Appliedjob.all
   end
 
   def display
-    if current_user.usertype=="Recruiter"
-      @jobs=Job.where(user_id: current_user.id)
-      @appliedjobs=Appliedjob.all
-    else
-      @jobs=Job.all 
-      @appliedjobs=Appliedjob.where(user_id: current_user.id)
-    end  
   end  
 
   def applied
@@ -52,7 +35,6 @@ class JobsController < ApplicationController
 
     respond_to do |format|
       if @job.save
-        #format.html { redirect_to home_index_url(), notice: "Job was successfully created." }
         format.html { redirect_to job_url(@job), notice: "Job was successfully created." }
         format.json { render :show, status: :created, location: @job }
       else

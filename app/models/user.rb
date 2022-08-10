@@ -8,8 +8,6 @@ class User < ApplicationRecord
   has_many :appliedjobs,dependent: :destroy 
   has_many :jobs ,dependent: :destroy 
  
-
-
   def self.from_omniauth(auth)
     data = auth.info
     user = User.where(email: data['email']).first

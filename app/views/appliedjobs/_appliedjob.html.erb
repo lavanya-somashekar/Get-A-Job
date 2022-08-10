@@ -21,7 +21,7 @@
       <%= appliedjob.user.email %>
     </p>
 
-    <%if current_user.usertype == "Recruiter" %>
+  <%if current_user.usertype == "Recruiter" %>
   <%= form_with(model: appliedjob) do |form| %>
     <div class="card-text">
     <strong><%= form.label :status %> :</strong>
